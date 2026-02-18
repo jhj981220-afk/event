@@ -105,8 +105,8 @@ h1{
     </h1>
 
     <div class="btn-container" id="btnArea">
-      <button class="btn yes" id="yesBtn" type="button">Yes</button>
-      <button class="btn no" id="noBtn" type="button">No</button>
+      <button class="btn NO" id="NOBtn" type="button">NO</button>
+      <button class="btn YES" id="YESBtn" type="button">YES</button>
     </div>
 
     <div class="result" id="result"> 약속 확정 </div>
@@ -114,17 +114,17 @@ h1{
 
 <script>
 (function () {
-  const yesBtn = document.getElementById("yesBtn") || document.querySelector(".yes");
-  const noBtn  = document.getElementById("noBtn")  || document.querySelector(".no");
+  const NOBtn = document.getElementById("NOBtn") || document.querySelector(".NO");
+  const YESBtn  = document.getElementById("YESBtn")  || document.querySelector(".YES");
   const btnArea = document.getElementById("btnArea") || document.querySelector(".btn-container");
   const result = document.getElementById("result");
 
-  if (!yesBtn || !noBtn || !btnArea) {
+  if (!NOBtn || !YESBtn || !btnArea) {
     // 요소가 없으면(복붙 실수) 그냥 종료
     return;
   }
 
-  yesBtn.addEventListener("click", () => {
+  NOBtn.addEventListener("click", () => {
     document.body.style.backgroundImage =
       'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("02.jpg")';
     if (result) result.style.display = "block";
@@ -144,31 +144,31 @@ h1{
   }
 
   function moveNo(){
-    const w = noBtn.offsetWidth || 120;
-    const h = noBtn.offsetHeight || 48;
+    const w = NOBtn.offsetWidth || 120;
+    const h = YESBtn.offsetHeight || 48;
     const maxX = btnArea.clientWidth - w;
     const maxY = btnArea.clientHeight - h;
 
     const x = Math.max(0, Math.random()*maxX);
     const y = Math.max(0, Math.random()*maxY);
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top  = y + "px";
+    YESBtn.style.left = x + "px";
+    YESBtn.style.top  = y + "px";
   }
 
   // PC: 올리면 도망
-  noBtn.addEventListener("mouseenter", moveNo);
+  YESBtn.addEventListener("mouseenter", moveYES);
 
   // 모바일: 누르려는 순간 도망
-  noBtn.addEventListener("touchstart", (e) => {
+  YESBtn.addEventListener("touchstart", (e) => {
     e.preventDefault();
-    moveNo();
+    moveYES();
   }, { passive:false });
 
   // 클릭도 방지
-  noBtn.addEventListener("click", (e) => {
+  YESBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    moveNo();
+    moveYES();
   });
 
 })();
