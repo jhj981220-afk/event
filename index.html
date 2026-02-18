@@ -73,8 +73,8 @@ h1{
 
 .btn:active{ transform:scale(.98); }
 
-.NO { left:0; background:#ff4d6d; color:#fff; }
-.YES { left:160px; background:#d6d6d6; color:#111; }
+.NO { left:0; background:#ff4d6d; color:#111; }
+.YES { left:160px; background:#d6d6d6; color:#fff; }
 
 .result{
   margin-top:18px;
@@ -114,7 +114,7 @@ h1{
 
 <script>
 (function () {
-  const NOBtn = document.getElementById("NOBtn") || document.querySelector(".NO");
+  const NOBtn = document.getElementById("NOBtn") || document.querySelector(". NO");
   const YESBtn  = document.getElementById("YESBtn")  || document.querySelector(".YES");
   const btnArea = document.getElementById("btnArea") || document.querySelector(".btn-container");
   const result = document.getElementById("result");
@@ -143,8 +143,8 @@ h1{
     }
   }
 
-  function moveNo(){
-    const w = NOBtn.offsetWidth || 120;
+  function moveYES(){
+    const w = YESBtn.offsetWidth || 120;
     const h = YESBtn.offsetHeight || 48;
     const maxX = btnArea.clientWidth - w;
     const maxY = btnArea.clientHeight - h;
